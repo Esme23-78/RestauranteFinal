@@ -24,28 +24,28 @@ Sistema web completo con frontend en React y backend en Spring Boot + Oracle. Ge
 ## 🖼️ Capturas de pantalla
 
 ### 🟠 Login y recuperación
-![Login frontend](./imagenes/LoginFrontend.png)
-![Error de login](./imagenes/LoginBackendError.png)
+![Login frontend](./Imagenes/LoginFrontend.png)
+![Error de login](./Imagenes/LoginBackendError.png)
 
 ### 👩‍🍳 Vista Gerente
-![Vista gerente](./imagenes/GerenteGeneralFrontend.png)
-![Meseros frontend](./imagenes/MeserosGFrontend.png)
-![Meseros backend](./imagenes/MeserosGBackend.png)
+![Vista gerente](./Imagenes/GerenteGeneralFrontend.png)
+![Meseros frontend](./Imagenes/MeserosGFrontend.png)
+![Meseros backend](./Imagenes/MeserosGBackend.png)
 
 ### 🧑‍🍽️ Vista Meseros
-![Mesas frontend](./imagenes/MesasGFrontend.png)
-![Mesas backend](./imagenes/MesasGBackend.png)
-![Pedido desde mesero](./imagenes/PedidoFrontend.png)
+![Mesas frontend](./Imagenes/MesasGFrontend.png)
+![Mesas backend](./Imagenes/MesasGBackend.png)
+![Pedido desde mesero](./Imagenes/PedidoFrontend.png)
 
 ### 🧾 Pedidos
-![Detalle pedido](./imagenes/VerPedido.png)
-![Pedidos backend](./imagenes/PedidosBackend.png)
-![Detalle DTO](./imagenes/DetalleDTO.png)
+![Detalle pedido](./Imagenes/VerPedido.png)
+![Pedidos backend](./Imagenes/PedidosBackend.png)
+![Detalle DTO](./Imagenes/DetalleDTO.png)
 
 ### 🔧 Backend
-![Controlador de pedido](./imagenes/DetallePedidoController.png)
-![Controlador de login](./imagenes/LoginBackend.png)
-![Conexión Oracle](./imagenes/DeveloperOracle.png)
+![Controlador de pedido](./Imagenes/DetallePedidoController.png)
+![Controlador de login](./Imagenes/LoginBackend.png)
+![Conexión Oracle](./Imagenes/DeveloperOracle.png)
 
 ## ⚙️ Estructura del proyecto
 
