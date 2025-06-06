@@ -24,38 +24,35 @@ import Ordenes from './Paginas/Ordenes';
 import VerOrden from './Paginas/VerOrden';
 import EditarOrden from './Paginas/EditarOrden';
 
+import Protegido from './Componentes/Protegido';
+
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/recuperar" element={<Recuperar />} />
-        <Route path="/gerente" element={<Gerente />} />
-        <Route path="/meseros" element={<Meseros />} />
-        <Route path="/meserosg" element={<MeserosG />} />
-        <Route path="/mesasg" element={<MesasG />} />
-        <Route path="/alimentosg" element={<AlimentosG />} />
 
-        {/* CRUD Meseros */}
-        <Route path="/meserosg/agregar" element={<AgregarMesero />} />
-        <Route path="/meserosg/editar/:numero" element={<EditarMesero />} />
+        {/* Acceso solo para GERENTE */}
+        <Route path="/gerente" element={<Protegido rolRequerido="gerente"><Gerente /></Protegido>} />
+        <Route path="/meserosg" element={<Protegido rolRequerido="gerente"><MeserosG /></Protegido>} />
+        <Route path="/mesasg" element={<Protegido rolRequerido="gerente"><MesasG /></Protegido>} />
+        <Route path="/alimentosg" element={<Protegido rolRequerido="gerente"><AlimentosG /></Protegido>} />
+        <Route path="/meserosg/agregar" element={<Protegido rolRequerido="gerente"><AgregarMesero /></Protegido>} />
+        <Route path="/meserosg/editar/:numero" element={<Protegido rolRequerido="gerente"><EditarMesero /></Protegido>} />
+        <Route path="/mesasg/agregar" element={<Protegido rolRequerido="gerente"><AgregarMesa /></Protegido>} />
+        <Route path="/mesasg/editar/:numero" element={<Protegido rolRequerido="gerente"><EditarMesa /></Protegido>} />
+        <Route path="/alimentosg/agregar" element={<Protegido rolRequerido="gerente"><AgregarAlimento /></Protegido>} />
+        <Route path="/alimentosg/editar/:id" element={<Protegido rolRequerido="gerente"><EditarAlimento /></Protegido>} />
 
-        {/* CRUD Mesas */}
-        <Route path="/mesasg/agregar" element={<AgregarMesa />} />
-        <Route path="/mesasg/editar/:numero" element={<EditarMesa />} />
-
-        {/* CRUD Alimentos */}
-        <Route path="/alimentosg/agregar" element={<AgregarAlimento />} />
-        <Route path="/alimentosg/editar/:id" element={<EditarAlimento />} />
-
-        {/* Operación de mesas y órdenes */}
-        <Route path="/mesas" element={<Mesas />} />
-        <Route path="/generarorden/:id" element={<GenerarOrden />} />
-        <Route path="/ordenmesero/:idMesa" element={<OrdenMesero />} />
-        <Route path="/ordenes" element={<Ordenes />} />
-        <Route path="/verorden/:id" element={<VerOrden />} />
-        <Route path="/editarorden/:id" element={<EditarOrden />} />
-
+        {/* Acceso solo para MESERO */}
+        <Route path="/meseros" element={<Protegido rolRequerido="mesero"><Meseros /></Protegido>} />
+        <Route path="/mesas" element={<Protegido rolRequerido="mesero"><Mesas /></Protegido>} />
+        <Route path="/generarorden/:id" element={<Protegido rolRequerido="mesero"><GenerarOrden /></Protegido>} />
+        <Route path="/ordenmesero/:idMesa" element={<Protegido rolRequerido="mesero"><OrdenMesero /></Protegido>} />
+        <Route path="/ordenes" element={<Protegido rolRequerido="mesero"><Ordenes /></Protegido>} />
+        <Route path="/verorden/:id" element={<Protegido rolRequerido="mesero"><VerOrden /></Protegido>} />
+        <Route path="/editarorden/:id" element={<Protegido rolRequerido="mesero"><EditarOrden /></Protegido>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

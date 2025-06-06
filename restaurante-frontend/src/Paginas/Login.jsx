@@ -10,28 +10,37 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+ 
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post('http://localhost:8080/meseros/login', {
-        usuario: usuario.trim(),
-        contrasena: contrasena.trim()
-      });
+  e.preventDefault();
+  try {
+    const res = await axios.post('http://localhost:8080/meseros/login', {
+      usuario: usuario.trim(),
+      contrasena: contrasena.trim()
+    });
 
-      const encontrado = res.data;
-      localStorage.setItem('usuarioActual', JSON.stringify(encontrado));
+    const encontrado = res.data;
 
-      if (encontrado.rol === 'Gerente') {
-        navigate('/gerente');
-      } else if (encontrado.rol === 'Mesero') {
-        navigate('/mesas');
-      } else {
-        setError('Rol no reconocido');
-      }
-    } catch (err) {
-      setError('Usuario o contraseña incorrectos');
+    // Guardar el objeto completo si quieres
+    localStorage.setItem('usuarioActual', JSON.stringify(encontrado));
+
+    // Guardar también los campos clave separados
+    localStorage.setItem('usuario', encontrado.usuario);
+    localStorage.setItem('rol', encontrado.rol.toLowerCase());
+
+    // Redirección por rol
+    if (encontrado.rol.toLowerCase() === 'gerente') {
+      navigate('/gerente');
+    } else if (encontrado.rol.toLowerCase() === 'mesero') {
+      navigate('/mesas');
+    } else {
+      setError('Rol no reconocido');
     }
-  };
+  } catch (err) {
+    setError('Usuario o contraseña incorrectos');
+  }
+};
 
   return (
     <div
